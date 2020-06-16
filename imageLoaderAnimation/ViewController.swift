@@ -39,13 +39,13 @@ class ViewController: UIViewController, loadImageDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .purple
+        view.backgroundColor = .white
         view.addSubview(cardView)
         cardView.addSubview(imageLoaderView)
         cardView.addSubview(loadImageView)
         imageLoaderView.isHidden = false
         setUpConstraints()
-        customImage = CustomImage(imgURL: "https://images.pexels.com/photos/257540/pexels-photo-257540.jpeg")
+        customImage = CustomImage(imgURL: "https://i.picsum.photos/id/866/400/400.jpg?hmac=oHJBlOQwtaF75oX43dFtPf4At_GRLEx9FQqkkfpLR5U")
         customImage?.loadImage()
         customImage?.delegate = self
         
@@ -77,6 +77,7 @@ class ViewController: UIViewController, loadImageDelegate {
     func didFinishLoading(_ s: CustomImage) {
         imageLoaderView.isHidden = true
         loadImageView.image = customImage?.image
+        imageLoaderView.stop()
     }
     
 }
